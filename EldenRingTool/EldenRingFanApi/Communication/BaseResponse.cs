@@ -1,4 +1,6 @@
-﻿namespace EldenRingTool.EldenRingFanApi.Communication;
+﻿using EldenRingTool.Common;
+
+namespace EldenRingTool.EldenRingFanApi.Communication;
 
 public class BaseResponse
 {
@@ -10,9 +12,4 @@ public class BaseResponse
 
         return (T) this;
     }
-}
-
-public class Error
-{
-    public string Message { get; set; }
 }
