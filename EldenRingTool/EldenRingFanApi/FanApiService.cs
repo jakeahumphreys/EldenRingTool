@@ -11,9 +11,9 @@ public sealed class FanApiService : IFanApiService
 {
     private readonly IFanApiClient _fanApiClient;
 
-    public FanApiService()
+    public FanApiService(IFanApiClient fanApiClient)
     {
-        _fanApiClient = new FanApiClient();
+        _fanApiClient = fanApiClient;
     }
 
     public AllBossesResponse GetAll()
