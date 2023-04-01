@@ -7,6 +7,6 @@ public sealed class Boss
     public string Image { get; set; }
     public string Description { get; set; }
     public string Location { get; set; }
-    public string Drops { get; set; }
+    public string[] Drops { get; set; }
     public string HealthPoints { get; set; }
 }
