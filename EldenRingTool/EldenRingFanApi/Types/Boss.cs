@@ -18,6 +18,5 @@ public sealed class BossesRoot
     public bool Success { get; set; }
     public int Count { get; set; }
     public int Total { get; set; }
-    [JsonPropertyName("data")]
-    public List<Boss> Bosses { get; set; }
+    public List<Boss> Data { get; set; }
 }
