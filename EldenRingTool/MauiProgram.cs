@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.WebView.Maui;
 using EldenRingTool.Data;
+using EldenRingTool.EldenRingFanApi;
 
 namespace EldenRingTool;
 
@@ -18,6 +19,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<WeatherForecastService>();
+        builder.Services.AddSingleton<FanApiService>();
 
         return builder.Build();
     }
