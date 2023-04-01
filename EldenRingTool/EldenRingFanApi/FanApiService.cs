@@ -2,7 +2,12 @@
 
 namespace EldenRingTool.EldenRingFanApi;
 
-public sealed class FanApiService
+public interface IFanApiService
+{
+    public AllBossesResponse GetAll();
+}
+
+public sealed class FanApiService : IFanApiService
 {
     private readonly FanApiClient _fanApiClient;
 
