@@ -1,0 +1,7 @@
+﻿@page "/Bosses"
+<h3>Bosses</h3>
+@AllBosses.Count
+@foreach (var boss in AllBosses)
+{
+    <h2>@boss.Name</h2>
+}
