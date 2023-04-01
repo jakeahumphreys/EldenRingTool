@@ -9,7 +9,7 @@ public interface IFanApiService
 
 public sealed class FanApiService : IFanApiService
 {
-    private readonly FanApiClient _fanApiClient;
+    private readonly IFanApiClient _fanApiClient;
 
     public FanApiService()
     {

@@ -7,7 +7,7 @@ namespace EldenRingTool.Pages;
 public partial class Bosses
 {
     [Inject]
-    protected FanApiService FanApiService { get; set; }
+    protected IFanApiService FanApiService { get; set; }
     
     public List<Boss> AllBosses { get; set; }
 

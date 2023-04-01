@@ -4,7 +4,12 @@ using Newtonsoft.Json;
 
 namespace EldenRingTool.EldenRingFanApi;
 
-public sealed class FanApiClient
+public interface IFanApiClient
+{
+    public AllBossesResponse GetAll();
+}
+
+public sealed class FanApiClient : IFanApiClient
 {
     private readonly HttpClient _httpClient;
     private const string BaseUrl = "https://eldenring.fanapis.com/api";
