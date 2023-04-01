@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EldenRingTool", "EldenRingTool\EldenRingTool.csproj", "{E595CC81-28EE-4DB3-A0D6-C065DD0C0873}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EldenRingTool.Tests", "EldenRingTool.Tests\EldenRingTool.Tests.csproj", "{F5D54967-19C6-4686-B593-CC2D84F69185}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{E595CC81-28EE-4DB3-A0D6-C065DD0C0873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E595CC81-28EE-4DB3-A0D6-C065DD0C0873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E595CC81-28EE-4DB3-A0D6-C065DD0C0873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D54967-19C6-4686-B593-CC2D84F69185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D54967-19C6-4686-B593-CC2D84F69185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D54967-19C6-4686-B593-CC2D84F69185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D54967-19C6-4686-B593-CC2D84F69185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
