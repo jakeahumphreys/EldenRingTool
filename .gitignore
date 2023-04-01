@@ -1,3 +1,5 @@
 .idea
 EldenRingTool/bin
 EldenRingTool/obj
+EldenRingTool.Tests/bin
+EldenRingTool.Tests/obj
