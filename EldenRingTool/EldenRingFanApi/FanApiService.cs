@@ -1,4 +1,5 @@
-﻿using EldenRingTool.EldenRingFanApi.Communication;
+﻿using EldenRingTool.Common;
+using EldenRingTool.EldenRingFanApi.Communication;
 
 namespace EldenRingTool.EldenRingFanApi;
 
@@ -18,6 +19,11 @@ public sealed class FanApiService : IFanApiService
 
     public AllBossesResponse GetAll()
     {
-        return _fanApiClient.GetAll();
+        var result = _fanApiClient.GetAll();
+
+        if (result.IsFailure)
+            return new AllBossesResponse().WithError<AllBossesResponse>(result.Errors.First());
+
+        return result.Content;
     }
 }

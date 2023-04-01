@@ -1,4 +1,5 @@
-﻿using EldenRingTool.EldenRingFanApi;
+﻿using EldenRingTool.Common;
+using EldenRingTool.EldenRingFanApi;
 using EldenRingTool.EldenRingFanApi.Communication;
 using EldenRingTool.EldenRingFanApi.Types;
 using EldenRingTool.Tests.EldenRingFanApi.Helpers;
@@ -23,10 +24,10 @@ public class WhenThereAreResults
             .WithName("Test Boss")
             .Build();
 
-        client.Setup(x => x.GetAll()).Returns(new AllBossesResponse
+        client.Setup(x => x.GetAll()).Returns(new Result<AllBossesResponse>(new AllBossesResponse
         {
             Bosses = new List<Boss> {testBoss}
-        });
+        }));
         
         var fanApiService = new FanApiService(client.Object);
         _result = fanApiService.GetAll();
