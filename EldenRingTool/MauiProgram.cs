@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Maui;
-using EldenRingTool.Data;
-using EldenRingTool.EldenRingFanApi;
+﻿using EldenRingTool.EldenRingFanApi;
 
 namespace EldenRingTool;
 
@@ -18,7 +16,6 @@ public static class MauiProgram
         builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
 
-        builder.Services.AddSingleton<WeatherForecastService>();
         builder.Services.AddSingleton<IFanApiService, FanApiService>();
 
         return builder.Build();
