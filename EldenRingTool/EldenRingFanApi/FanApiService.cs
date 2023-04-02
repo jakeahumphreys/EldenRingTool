@@ -42,4 +42,17 @@ public sealed class FanApiService : IFanApiService
             Boss = result.Content.Data.First()
         };
     }
+
+    public async Task<GetByIdResponse> GetById(string id)
+    {
+        var result = await _fanApiClient.GetById(id);
+
+        if (result.IsFailure)
+            return new GetByIdResponse().WithError<GetByIdResponse>(result.Errors.First());
+
+        return new GetByIdResponse
+        {
+            Boss = result.Content.Data.First()
+        };
+    }
 }
