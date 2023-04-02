@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider/>
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
@@ -10,6 +10,7 @@
         Elden Ring Tool
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
+        <MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="Dark Mode"/>
         <NavMenu/>
     </MudDrawer>
     <MudMainContent>
@@ -21,6 +22,8 @@
 
 @code
 {
+    private MudTheme _theme = new();
+    private bool _isDarkMode;
     bool _drawerOpen = true;
 
     void DrawerToggle()
