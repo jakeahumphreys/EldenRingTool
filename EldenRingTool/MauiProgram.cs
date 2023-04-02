@@ -17,8 +17,8 @@ public static class MauiProgram
         builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
         builder.Services.AddMudServices();
-        builder.Services.AddSingleton<IFanApiService, FanApiService>();
-        builder.Services.AddSingleton<IFanApiClient, FanApiClient>();
+        builder.Services.AddSingleton<IApiService, ApiService>();
+        builder.Services.AddSingleton<IApiClient, ApiClient>();
 
         return builder.Build();
     }

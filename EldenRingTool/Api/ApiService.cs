@@ -2,23 +2,23 @@
 
 namespace EldenRingTool.Api;
 
-public interface IFanApiService
+public interface IApiService
 {
     public Task<AllBossesResponse> GetAll();
 }
 
-public sealed class FanApiService : IFanApiService
+public sealed class ApiService : IApiService
 {
-    private readonly IFanApiClient _fanApiClient;
+    private readonly IApiClient _apiClient;
 
-    public FanApiService(IFanApiClient fanApiClient)
+    public ApiService(IApiClient apiClient)
     {
-        _fanApiClient = fanApiClient;
+        _apiClient = apiClient;
     }
 
     public async Task<AllBossesResponse> GetAll()
     {
-        var result = await _fanApiClient.GetAllAsync();
+        var result = await _apiClient.GetAllAsync();
 
         if (result.IsFailure)
             return new AllBossesResponse().WithError<AllBossesResponse>(result.Errors.First());
@@ -32,7 +32,7 @@ public sealed class FanApiService : IFanApiService
     public async Task<GetByNameResponse> GetByName(string name)
     {
         var parsedName = name.Replace(" ", "%20");
-        var result = await _fanApiClient.GetByName(parsedName);
+        var result = await _apiClient.GetByName(parsedName);
 
         if (result.IsFailure)
             return new GetByNameResponse().WithError<GetByNameResponse>(result.Errors.First());
@@ -45,7 +45,7 @@ public sealed class FanApiService : IFanApiService
 
     public async Task<GetByIdResponse> GetById(string id)
     {
-        var result = await _fanApiClient.GetById(id);
+        var result = await _apiClient.GetById(id);
 
         if (result.IsFailure)
             return new GetByIdResponse().WithError<GetByIdResponse>(result.Errors.First());

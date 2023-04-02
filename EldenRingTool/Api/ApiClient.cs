@@ -4,14 +4,14 @@ using Newtonsoft.Json;
 
 namespace EldenRingTool.Api;
 
-public interface IFanApiClient
+public interface IApiClient
 {
     public Task<Result<BossesRoot>> GetByName(string name);
     public Task<Result<BossesRoot>> GetById(string id);
     public Task<Result<List<Boss>>> GetAllAsync();
 }
 
-public sealed class FanApiClient : IFanApiClient
+public sealed class ApiClient : IApiClient
 {
     private const string BaseUrl = "https://eldenring.fanapis.com/api";
 

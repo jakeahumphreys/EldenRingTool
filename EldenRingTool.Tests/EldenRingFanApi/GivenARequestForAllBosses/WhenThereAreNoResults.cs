@@ -15,7 +15,7 @@ public class WhenThereAreNoResults
     [OneTimeSetUp]
     public void Setup()
     {
-        var client = new Mock<IFanApiClient>();
+        var client = new Mock<IApiClient>();
 
         client.Setup(x => x.GetAllAsync()).Returns(Task.FromResult(new Result<List<Boss>>
         {
@@ -28,7 +28,7 @@ public class WhenThereAreNoResults
             }
         }));
         
-        var fanApiService = new FanApiService(client.Object);
+        var fanApiService = new ApiService(client.Object);
         _result = fanApiService.GetAll();
     }
 

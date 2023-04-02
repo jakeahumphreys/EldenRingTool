@@ -8,7 +8,7 @@ namespace EldenRingTool.Pages;
 public partial class Bosses
 {
     [Inject]
-    protected IFanApiService FanApiService { get; set; }
+    protected IApiService ApiService { get; set; }
     
     public List<Boss> AllBosses { get; set; }
     public Error Error { get; set; }
@@ -17,7 +17,7 @@ public partial class Bosses
     {
         AllBosses = new List<Boss>();
         
-        var allBossesResponse = await FanApiService.GetAll();
+        var allBossesResponse = await ApiService.GetAll();
 
         if (allBossesResponse.Error != null)
         {
