@@ -4,7 +4,7 @@ namespace EldenRingTool.EldenRingFanApi;
 
 public interface IFanApiService
 {
-    public AllBossesResponse GetAll();
+    public Task<AllBossesResponse> GetAll();
 }
 
 public sealed class FanApiService : IFanApiService
@@ -16,13 +16,16 @@ public sealed class FanApiService : IFanApiService
         _fanApiClient = fanApiClient;
     }
 
-    public AllBossesResponse GetAll()
+    public async Task<AllBossesResponse> GetAll()
     {
-        var result = _fanApiClient.GetAll();
+        var result = await _fanApiClient.GetAllAsync();
 
         if (result.IsFailure)
             return new AllBossesResponse().WithError<AllBossesResponse>(result.Errors.First());
 
-        return result.Content;
+        return new AllBossesResponse
+        {
+            Bosses = result.Content
+        };
     }
 }

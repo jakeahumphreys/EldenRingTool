@@ -1,5 +1,11 @@
 ﻿@page "/Bosses"
 <h3>Bosses</h3>
+
+@if (Error != null)
+{
+    <h3>@Error.Message</h3>
+}
+
 @AllBosses.Count
 @foreach (var boss in AllBosses)
 {

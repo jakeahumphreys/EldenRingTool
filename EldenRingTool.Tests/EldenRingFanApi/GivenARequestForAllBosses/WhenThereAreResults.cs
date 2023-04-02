@@ -10,7 +10,7 @@ namespace EldenRingTool.Tests.EldenRingFanApi.GivenARequestForAllBosses;
 [TestFixture]
 public class WhenThereAreResults
 {
-    private AllBossesResponse _result;
+    private Task<AllBossesResponse> _result;
 
     [OneTimeSetUp]
     public void Setup()
@@ -24,10 +24,7 @@ public class WhenThereAreResults
             .WithName("Test Boss")
             .Build();
 
-        client.Setup(x => x.GetAll()).Returns(new Result<AllBossesResponse>(new AllBossesResponse
-        {
-            Bosses = new List<Boss> {testBoss}
-        }));
+        client.Setup(x => x.GetAllAsync()).Returns(Task.FromResult(new Result<List<Boss>>( new List<Boss> {testBoss})));
         
         var fanApiService = new FanApiService(client.Object);
         _result = fanApiService.GetAll();
@@ -36,12 +33,12 @@ public class WhenThereAreResults
     [Test]
     public void ThenNoErrorsAreReturned()
     {
-        Assert.That(_result.Error, Is.Null);
+        Assert.That(_result.Result.Error, Is.Null);
     }
 
     [Test]
     public void ThenTheExpectedResultsAreReturned()
     {
-        Assert.That(_result.Bosses.Count, Is.EqualTo(1));
+        Assert.That(_result.Result.Bosses.Count, Is.EqualTo(1));
     }
 }

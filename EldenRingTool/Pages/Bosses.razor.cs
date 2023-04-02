@@ -1,4 +1,5 @@
-﻿using EldenRingTool.EldenRingFanApi;
+﻿using EldenRingTool.Common;
+using EldenRingTool.EldenRingFanApi;
 using EldenRingTool.EldenRingFanApi.Types;
 using Microsoft.AspNetCore.Components;
 
@@ -10,14 +11,17 @@ public partial class Bosses
     protected IFanApiService FanApiService { get; set; }
     
     public List<Boss> AllBosses { get; set; }
+    public Error Error { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        var allBossesResponse = FanApiService.GetAll();
+        AllBosses = new List<Boss>();
+        
+        var allBossesResponse = await FanApiService.GetAll();
 
         if (allBossesResponse.Error != null)
         {
-            //handle error
+            Error = allBossesResponse.Error;
         }
 
         AllBosses = allBossesResponse.Bosses;

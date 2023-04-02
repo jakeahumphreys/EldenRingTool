@@ -10,14 +10,14 @@ namespace EldenRingTool.Tests.EldenRingFanApi.GivenARequestForAllBosses;
 [TestFixture]
 public class WhenThereAreNoResults
 {
-    private AllBossesResponse _result;
+    private Task<AllBossesResponse> _result;
 
     [OneTimeSetUp]
     public void Setup()
     {
         var client = new Mock<IFanApiClient>();
 
-        client.Setup(x => x.GetAll()).Returns(new Result<AllBossesResponse>
+        client.Setup(x => x.GetAllAsync()).Returns(Task.FromResult(new Result<List<Boss>>
         {
             Errors = new List<Error>
             {
@@ -26,7 +26,7 @@ public class WhenThereAreNoResults
                     Message = "No bosses were returned from the API."
                 }
             }
-        });
+        }));
         
         var fanApiService = new FanApiService(client.Object);
         _result = fanApiService.GetAll();
@@ -35,13 +35,13 @@ public class WhenThereAreNoResults
     [Test]
     public void ThenAnErrorIsReturned()
     {
-        Assert.That(_result.Error, Is.Not.Null);
-        Assert.That(_result.Error.Message, Is.EqualTo("No bosses were returned from the API."));
+        Assert.That(_result.Result.Error, Is.Not.Null);
+        Assert.That(_result.Result.Error.Message, Is.EqualTo("No bosses were returned from the API."));
     }
 
     [Test]
     public void ThenTheExpectedResultsAreReturned()
     {
-        Assert.That(_result.Bosses, Is.Empty);
+        Assert.That(_result.Result.Bosses, Is.Empty);
     }
 }
