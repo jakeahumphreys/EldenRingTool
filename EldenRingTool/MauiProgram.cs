@@ -1,4 +1,5 @@
 ﻿using EldenRingTool.EldenRingFanApi;
+using MudBlazor.Services;
 
 namespace EldenRingTool;
 
@@ -15,7 +16,7 @@ public static class MauiProgram
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
-
+        builder.Services.AddMudServices();
         builder.Services.AddSingleton<IFanApiService, FanApiService>();
         builder.Services.AddSingleton<IFanApiClient, FanApiClient>();
 

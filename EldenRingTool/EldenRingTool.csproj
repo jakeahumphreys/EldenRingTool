@@ -54,6 +54,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MudBlazor" Version="6.2.1-dev2" />
+      <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.7" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
