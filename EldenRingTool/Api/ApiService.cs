@@ -32,7 +32,7 @@ public sealed class ApiService : IApiService
     public async Task<GetByNameResponse> GetByName(string name)
     {
         var parsedName = name.Replace(" ", "%20");
-        var result = await _apiClient.GetByName(parsedName);
+        var result = await _apiClient.GetByNameAsync(parsedName);
 
         if (result.IsFailure)
             return new GetByNameResponse().WithError<GetByNameResponse>(result.Errors.First());
@@ -45,7 +45,7 @@ public sealed class ApiService : IApiService
 
     public async Task<GetByIdResponse> GetById(string id)
     {
-        var result = await _apiClient.GetById(id);
+        var result = await _apiClient.GetByIdAsync(id);
 
         if (result.IsFailure)
             return new GetByIdResponse().WithError<GetByIdResponse>(result.Errors.First());

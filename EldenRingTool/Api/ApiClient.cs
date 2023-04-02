@@ -6,8 +6,8 @@ namespace EldenRingTool.Api;
 
 public interface IApiClient
 {
-    public Task<Result<BossesRoot>> GetByName(string name);
-    public Task<Result<BossesRoot>> GetById(string id);
+    public Task<Result<BossesRoot>> GetByNameAsync(string name);
+    public Task<Result<BossesRoot>> GetByIdAsync(string id);
     public Task<Result<List<Boss>>> GetAllAsync();
 }
 
@@ -15,7 +15,7 @@ public sealed class ApiClient : IApiClient
 {
     private const string BaseUrl = "https://eldenring.fanapis.com/api";
 
-    public async Task<Result<BossesRoot>> GetByName(string name)
+    public async Task<Result<BossesRoot>> GetByNameAsync(string name)
     {
         try
         {
@@ -47,7 +47,7 @@ public sealed class ApiClient : IApiClient
         }
     }
     
-    public async Task<Result<BossesRoot>> GetById(string id)
+    public async Task<Result<BossesRoot>> GetByIdAsync(string id)
     {
         try
         {
