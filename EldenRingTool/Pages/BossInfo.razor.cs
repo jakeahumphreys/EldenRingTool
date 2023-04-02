@@ -1,6 +1,4 @@
-﻿using EldenRingTool.EldenRingFanApi.Types;
-
-namespace EldenRingTool.Pages;
+﻿namespace EldenRingTool.Pages;
 
 public partial class BossInfo
 {

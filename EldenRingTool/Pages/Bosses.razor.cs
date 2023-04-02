@@ -1,6 +1,6 @@
-﻿using EldenRingTool.Common;
-using EldenRingTool.EldenRingFanApi;
-using EldenRingTool.EldenRingFanApi.Types;
+﻿using EldenRingTool.Api;
+using EldenRingTool.Api.Types;
+using EldenRingTool.Common;
 using Microsoft.AspNetCore.Components;
 
 namespace EldenRingTool.Pages;

@@ -1,7 +1,7 @@
-﻿using EldenRingTool.Common;
-using EldenRingTool.EldenRingFanApi;
-using EldenRingTool.EldenRingFanApi.Communication;
-using EldenRingTool.EldenRingFanApi.Types;
+﻿using EldenRingTool.Api;
+using EldenRingTool.Api.Communication;
+using EldenRingTool.Api.Types;
+using EldenRingTool.Common;
 using EldenRingTool.Tests.EldenRingFanApi.Helpers;
 using Moq;
 

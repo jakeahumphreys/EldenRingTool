@@ -1,9 +1,8 @@
-﻿using EldenRingTool.Common;
-using EldenRingTool.EldenRingFanApi.Communication;
-using EldenRingTool.EldenRingFanApi.Types;
+﻿using EldenRingTool.Api.Types;
+using EldenRingTool.Common;
 using Newtonsoft.Json;
 
-namespace EldenRingTool.EldenRingFanApi;
+namespace EldenRingTool.Api;
 
 public interface IFanApiClient
 {

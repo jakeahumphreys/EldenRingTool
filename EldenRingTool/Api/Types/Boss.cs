@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace EldenRingTool.EldenRingFanApi.Types;
+﻿namespace EldenRingTool.Api.Types;
 
 public sealed class Boss
 {

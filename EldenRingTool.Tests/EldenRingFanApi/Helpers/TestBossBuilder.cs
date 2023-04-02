@@ -1,4 +1,4 @@
-﻿using EldenRingTool.EldenRingFanApi.Types;
+﻿using EldenRingTool.Api.Types;
 
 namespace EldenRingTool.Tests.EldenRingFanApi.Helpers;
 

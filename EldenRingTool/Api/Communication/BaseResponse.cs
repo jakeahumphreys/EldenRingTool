@@ -1,6 +1,6 @@
 ﻿using EldenRingTool.Common;
 
-namespace EldenRingTool.EldenRingFanApi.Communication;
+namespace EldenRingTool.Api.Communication;
 
 public class BaseResponse
 {

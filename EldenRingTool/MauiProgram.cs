@@ -1,4 +1,4 @@
-﻿using EldenRingTool.EldenRingFanApi;
+﻿using EldenRingTool.Api;
 using MudBlazor.Services;
 
 namespace EldenRingTool;

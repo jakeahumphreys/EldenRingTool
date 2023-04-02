@@ -1,6 +1,6 @@
-﻿using EldenRingTool.EldenRingFanApi.Communication;
+﻿using EldenRingTool.Api.Communication;
 
-namespace EldenRingTool.EldenRingFanApi;
+namespace EldenRingTool.Api;
 
 public interface IFanApiService
 {

@@ -1,6 +1,6 @@
-﻿using EldenRingTool.EldenRingFanApi.Types;
+﻿using EldenRingTool.Api.Types;
 
-namespace EldenRingTool.EldenRingFanApi.Communication;
+namespace EldenRingTool.Api.Communication;
 
 public sealed class AllBossesResponse : BaseResponse
 {
