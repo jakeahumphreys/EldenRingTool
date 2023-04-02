@@ -14,6 +14,7 @@ public sealed class FanApiClient : IFanApiClient
 {
     private readonly HttpClient _httpClient;
     private const string BaseUrl = "https://eldenring.fanapis.com/api";
+    private const int ResultsLimit = 200;
 
     public FanApiClient()
     {
@@ -22,7 +23,7 @@ public sealed class FanApiClient : IFanApiClient
 
     public Result<AllBossesResponse> GetAll()
     {
-        var uri = new Uri($"{BaseUrl}/bosses");
+        var uri = new Uri($"{BaseUrl}/bosses?limit={ResultsLimit}");
         var responseString = _httpClient.GetStringAsync(uri).Result;
 
         if (string.IsNullOrWhiteSpace(responseString))

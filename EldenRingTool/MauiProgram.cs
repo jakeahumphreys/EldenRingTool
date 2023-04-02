@@ -17,6 +17,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<IFanApiService, FanApiService>();
+        builder.Services.AddSingleton<IFanApiClient, FanApiClient>();
 
         return builder.Build();
     }

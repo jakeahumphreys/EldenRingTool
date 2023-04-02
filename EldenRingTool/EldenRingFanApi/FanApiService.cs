@@ -1,5 +1,4 @@
-﻿using EldenRingTool.Common;
-using EldenRingTool.EldenRingFanApi.Communication;
+﻿using EldenRingTool.EldenRingFanApi.Communication;
 
 namespace EldenRingTool.EldenRingFanApi;
 
