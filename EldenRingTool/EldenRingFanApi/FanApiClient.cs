@@ -7,12 +7,45 @@ namespace EldenRingTool.EldenRingFanApi;
 
 public interface IFanApiClient
 {
+    public Task<Result<BossesRoot>> GetByName(string name);
     public Task<Result<List<Boss>>> GetAllAsync();
 }
 
 public sealed class FanApiClient : IFanApiClient
 {
     private const string BaseUrl = "https://eldenring.fanapis.com/api";
+
+    public async Task<Result<BossesRoot>> GetByName(string name)
+    {
+        try
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var uri = new Uri($"{BaseUrl}/bosses?name={name}");
+                using (var response = await httpClient.GetAsync(uri))
+                {
+                    if(!response.IsSuccessStatusCode)
+                        return new Result<BossesRoot>().WithError($"The API returned a non-success status code: {response.StatusCode}.");
+                    
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if(string.IsNullOrWhiteSpace(result))
+                        return new Result<BossesRoot>().WithError($"No response was returned from the API.");
+
+                    var parsedResponse = JsonConvert.DeserializeObject<BossesRoot>(result);
+                    
+                    if(parsedResponse.Count == 0)
+                        return new Result<BossesRoot>().WithError($"{name} was not found on the API.");
+
+                    return new Result<BossesRoot>(parsedResponse);
+                }
+            }
+        }
+        catch (Exception exception)
+        {
+            return new Result<BossesRoot>().WithError(exception.Message);
+        }
+    }
     
     public async Task<Result<List<Boss>>> GetAllAsync()
     {

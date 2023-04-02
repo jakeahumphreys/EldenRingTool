@@ -28,4 +28,18 @@ public sealed class FanApiService : IFanApiService
             Bosses = result.Content
         };
     }
+
+    public async Task<GetByNameResponse> GetByName(string name)
+    {
+        var parsedName = name.Replace(" ", "%20");
+        var result = await _fanApiClient.GetByName(parsedName);
+
+        if (result.IsFailure)
+            return new GetByNameResponse().WithError<GetByNameResponse>(result.Errors.First());
+
+        return new GetByNameResponse
+        {
+            Boss = result.Content.Data.First()
+        };
+    }
 }
