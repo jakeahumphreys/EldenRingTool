@@ -1,8 +1,8 @@
 ﻿using EldenRingTool.Api;
 using EldenRingTool.Api.Communication;
 using EldenRingTool.Api.Types;
-using EldenRingTool.Common;
 using EldenRingTool.Tests.EldenRingFanApi.Helpers;
+using JCommon.Communication.Internal;
 using Moq;
 
 namespace EldenRingTool.Tests.EldenRingFanApi.GivenARequestForAllBosses;

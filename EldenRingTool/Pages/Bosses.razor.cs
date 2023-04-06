@@ -1,6 +1,6 @@
 ﻿using EldenRingTool.Api;
 using EldenRingTool.Api.Types;
-using EldenRingTool.Common;
+using JCommon.ErrorHandling;
 using Microsoft.AspNetCore.Components;
 
 namespace EldenRingTool.Pages;

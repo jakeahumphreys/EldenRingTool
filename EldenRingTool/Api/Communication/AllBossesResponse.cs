@@ -1,4 +1,5 @@
 ﻿using EldenRingTool.Api.Types;
+using JCommon.Communication.External;
 
 namespace EldenRingTool.Api.Communication;
 

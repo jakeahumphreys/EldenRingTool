@@ -1,5 +1,5 @@
 ﻿using EldenRingTool.Api.Types;
-using EldenRingTool.Common;
+using JCommon.Communication.Internal;
 using Newtonsoft.Json;
 
 namespace EldenRingTool.Api;

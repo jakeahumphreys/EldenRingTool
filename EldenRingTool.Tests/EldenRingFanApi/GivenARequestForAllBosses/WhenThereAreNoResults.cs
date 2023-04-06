@@ -1,8 +1,8 @@
 ﻿using EldenRingTool.Api;
 using EldenRingTool.Api.Communication;
 using EldenRingTool.Api.Types;
-using EldenRingTool.Common;
-using EldenRingTool.Tests.EldenRingFanApi.Helpers;
+using JCommon.Communication.Internal;
+using JCommon.ErrorHandling;
 using Moq;
 
 namespace EldenRingTool.Tests.EldenRingFanApi.GivenARequestForAllBosses;
@@ -21,10 +21,7 @@ public class WhenThereAreNoResults
         {
             Errors = new List<Error>
             {
-                new Error
-                {
-                    Message = "No bosses were returned from the API."
-                }
+                new Error("No bosses were returned from the API.")
             }
         }));
         
